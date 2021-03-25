@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="container">
+  <view style="font-size: 48px">Restaurants</view>
+
+  <view wx:for="{{restaurants}}" wx:for-item="restaurant">
+    {{restaurant.name}}
+  </view>
+
+  Baia's name: {{baia.name}} 
+</view>

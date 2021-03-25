@@ -9,8 +9,15 @@ App({
 
     let clientID = '86e9cea993a138b9109a'  // 应用名称: 我们的团队的第一个小程序
     wx.BaaS.init(clientID)
+
+    const self = this
+    wx.BaaS.auth.getCurrentUser().then(res => {
+      console.log('get current user happened')
+      wx.setStorageSync('userInfo', res)
+      self.globalData.userInfo = res
+    })
   },
   globalData: {
-    userInfo: null
+    userInfo: wx.getStorageSync('userInfo')
   }
 })

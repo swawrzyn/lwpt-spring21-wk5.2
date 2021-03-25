@@ -1,12 +1,13 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/user/profile",
     "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "LWPD - Spring 21 - Wk5.2",
     "navigationBarTextStyle":"black"
   },
   "style": "v2",

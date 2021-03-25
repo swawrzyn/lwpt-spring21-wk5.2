@@ -7,4 +7,10 @@
   </view>
 
   Baia's name: {{baia.name}} 
+
+
+  <view style="font-size: 48px">Reviews</view>
+  <view wx:for="{{reviews}}" style="font-size: 24px;" wx:for-item="review">
+    {{review.content}}
+  </view>
 </view>

@@ -6,6 +6,7 @@ Page({
   data: {
     restaurants: [],
     baia: {},
+    reviews: [],
   },
   // 事件处理函数
   onLoad() {
@@ -13,20 +14,20 @@ Page({
     console.log('this one is first')
     let Restaurants = new wx.BaaS.TableObject('restaurants_sp21')
     
-    // Restaurants.find().then(
-    // (res) => {
-    //   // success function
-    //   // you have access to res
-    //   console.log('result', res)
-    //   self.setData({
-    //     restaurants: res.data.objects
-    //   })
-    //   console.log('this one is last')
-    // },
-    // (err) => {
-    //   // fail function
-    //   console.log('err', err)
-    // })
+    Restaurants.find().then(
+    (res) => {
+      // success function
+      // you have access to res
+      console.log('result', res)
+      self.setData({
+        restaurants: res.data.objects
+      })
+      console.log('this one is last')
+    },
+    (err) => {
+      // fail function
+      console.log('err', err)
+    })
 
     // console.log('this one is second.')
 
@@ -39,6 +40,20 @@ Page({
       })
     }, (err) => {
 
+    })
+
+    let Reviews = new wx.BaaS.TableObject('reviews_sp21')
+
+    let query = new wx.BaaS.Query()
+
+    query.compare('restaurantId', '=', baiaId)
+
+    Reviews.setQuery(query).find().then((res) => {
+      self.setData({
+        reviews: res.data.objects
+      })
+    }, (err) => {
+      
     })
 
   },
